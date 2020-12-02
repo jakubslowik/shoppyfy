@@ -41,7 +41,9 @@ const PaymentSummary = props => {
   }
 
   if (!shippingInformation.email) {
-    navigate("/");
+    if (typeof window !== "undefined") {
+      navigate("/");
+    }
   }
 
   const totalCost = getTotalCost(productsInCart);
